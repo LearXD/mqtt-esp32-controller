@@ -60,7 +60,8 @@ void restart()
 
 void setup()
 {
-  // watchdog.attach(120, restart);
+  // PREVENT ESP32-CAM CRASH
+  watchdog.attach(60 * 3, restart);
 
   Serial.begin(115200);
   pinMode(2, OUTPUT);
